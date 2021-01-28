@@ -6,7 +6,8 @@ public class foodGenerator : MonoBehaviour
 {
     positionRecord foodPosition;
 
-    GameObject foodObject;
+   public GameObject foodObject;
+    
 
     public List<positionRecord> allTheFood;
 
@@ -79,6 +80,7 @@ public class foodGenerator : MonoBehaviour
         while(true)
         {
             if (getVisibleFood() < 6) { 
+
                 yield return new WaitForSeconds(Random.Range(1f, 3f));
 
                 foodPosition = new positionRecord();
@@ -87,7 +89,7 @@ public class foodGenerator : MonoBehaviour
 
                 float randomY = Mathf.Floor(Random.Range(-9f, 9f));
 
-                Vector3 randomLocation = new Vector3(randomX, randomY);
+                Vector3 randomLocation = new Vector3(randomX + 0.5f, randomY+0.5f);
 
                 //don't allow the food to be spawned on other food
 
@@ -131,11 +133,11 @@ public class foodGenerator : MonoBehaviour
 
         allTheFood = new List<positionRecord>();
 
-        foodObject = Resources.Load<GameObject>("Prefabs/Square");
+        //foodObject = Resources.Load<GameObject>("Prefabs/Square");
 
         sn = Camera.main.GetComponent<snakeGenerator>();
 
-       // StartCoroutine(generateFood());
+        StartCoroutine(generateFood());
 
 
     }

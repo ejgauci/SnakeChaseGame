@@ -68,7 +68,7 @@ public class snakeheadController : MonoBehaviour
             //Debug.LogWarning("Closest food" + findClosestFood());
             transform.position -= new Vector3(1f,0);
             checkBounds();
-            //myfoodgenerator.eatFood(this.transform.position);
+            myfoodgenerator.eatFood(this.transform.position);
             Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength));
 
         }
@@ -77,7 +77,7 @@ public class snakeheadController : MonoBehaviour
             //Debug.LogWarning("Closest food" + findClosestFood());
             transform.position += new Vector3(1f, 0);
             checkBounds();
-            //myfoodgenerator.eatFood(this.transform.position);
+            myfoodgenerator.eatFood(this.transform.position);
             Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength));
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -85,7 +85,7 @@ public class snakeheadController : MonoBehaviour
             //Debug.LogWarning("Closest food" + findClosestFood());
             transform.position += new Vector3(0, 1f);
             checkBounds();
-            //myfoodgenerator.eatFood(this.transform.position);
+            myfoodgenerator.eatFood(this.transform.position);
             Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength));
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -93,10 +93,10 @@ public class snakeheadController : MonoBehaviour
             //Debug.LogWarning("Closest food" + findClosestFood());
             transform.position -= new Vector3(0, 1f);
             checkBounds();
-            //myfoodgenerator.eatFood(this.transform.position);
+            myfoodgenerator.eatFood(this.transform.position);
             Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength));
         }
-
+        
         
 
         //Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength)); 

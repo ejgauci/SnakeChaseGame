@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class snakeGenerator : MonoBehaviour
 {
@@ -56,7 +57,13 @@ public class snakeGenerator : MonoBehaviour
 
 
         playerBox = Instantiate(square, spawnPoint.position, Quaternion.identity);
-        AIBox = Instantiate(AI, new Vector3(0f, 0f, 0f), Quaternion.identity);
+
+        if (SceneManager.GetActiveScene().name != "Level1")
+        {
+            AIBox = Instantiate(AI, new Vector3(0f, 0f, 0f), Quaternion.identity);
+        }
+
+        
 
 
         timerUI = Instantiate(timer, new Vector3(0f,0f,0f), Quaternion.identity);
@@ -155,7 +162,7 @@ public class snakeGenerator : MonoBehaviour
         float xpos = 0f;
         while(xpos < 10f)
         {
-            Debug.Log(xpos);
+            //Debug.Log(xpos);
             playerBox.transform.position += new Vector3(1f, 0f);
             xpos++;
             savePosition();
@@ -178,10 +185,10 @@ public class snakeGenerator : MonoBehaviour
             
             if (p.Position == positionToCheck)
             {
-                Debug.Log(p.Position + "Actually was a past position");
+                //Debug.Log(p.Position + "Actually was a past position");
                 if (p.BreadcrumbBox != null)
                 {
-                    Debug.Log(p.Position + "Actually has a red box already");
+                    //Debug.Log(p.Position + "Actually has a red box already");
                     //this breaks the foreach so I don't need to keep checking
                     return true;
                 }
@@ -214,7 +221,7 @@ public class snakeGenerator : MonoBehaviour
         }
 
         pastPositions.Add(currentBoxPos);
-        Debug.Log("Have made this many moves: " + pastPositions.Count);
+        //Debug.Log("Have made this many moves: " + pastPositions.Count);
        
     }
 
@@ -261,7 +268,7 @@ public class snakeGenerator : MonoBehaviour
                 //prints the past position and its order in the list
                 //Debug.Log(pastPositions[snakeblocks].Position + " " + pastPositions[snakeblocks].PositionOrder);
 
-                Debug.Log(snakeblocks);
+                //Debug.Log(snakeblocks);
 
                 pastPositions[snakeblocks].BreadcrumbBox = Instantiate(breadcrumbBox, pastPositions[snakeblocks].Position, Quaternion.identity);
                 pastPositions[snakeblocks].BreadcrumbBox.GetComponent<SpriteRenderer>().color = snakeColor;
@@ -307,7 +314,7 @@ public class snakeGenerator : MonoBehaviour
         {
             if ((headPosition == pastPositions[snakeblocks].Position) && (pastPositions[snakeblocks].BreadcrumbBox != null))
             {
-              //  Debug.Log("Hit Tail");
+                Debug.Log("Hit Tail");
                 return true;
             }
         }
@@ -338,7 +345,7 @@ public class snakeGenerator : MonoBehaviour
         if (Input.anyKeyDown && !((Input.GetMouseButtonDown(0)
             || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) && !Input.GetKeyDown(KeyCode.X) && !Input.GetKeyDown(KeyCode.Z) && !Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("a key was pressed "+Time.time);
+            //Debug.Log("a key was pressed "+Time.time);
           
             savePosition();
 
