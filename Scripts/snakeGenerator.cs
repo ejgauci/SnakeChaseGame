@@ -9,6 +9,8 @@ public class snakeGenerator : MonoBehaviour
     public int snakelength;
     public GameObject square;
     public GameObject timer;
+    public Transform spawnPoint;
+    public GameObject AI;
 
     foodGenerator fgen;
     snakeheadController snakeController;
@@ -16,7 +18,7 @@ public class snakeGenerator : MonoBehaviour
 
     int pastpositionslimit = 100;
 
-    GameObject playerBox,breadcrumbBox,pathParent,timerUI;
+    GameObject playerBox,breadcrumbBox,pathParent,timerUI,AIBox;
 
     List<positionRecord> pastPositions;
 
@@ -50,11 +52,14 @@ public class snakeGenerator : MonoBehaviour
     void Start()
     {
 
-        snakeColor = Color.green;
+        snakeColor = Color.grey;
 
-        playerBox = Instantiate(square, new Vector3(0f, 0f), Quaternion.identity);
 
-        timerUI = Instantiate(timer, new Vector3(0f, 0f), Quaternion.identity);
+        playerBox = Instantiate(square, spawnPoint.position, Quaternion.identity);
+        AIBox = Instantiate(AI, new Vector3(0f, 0f, 0f), Quaternion.identity);
+
+
+        timerUI = Instantiate(timer, new Vector3(0f,0f,0f), Quaternion.identity);
 
         //the default value for the timer is started
         timerUI.GetComponentInChildren<timerManager>().timerStarted = true;
@@ -76,7 +81,7 @@ public class snakeGenerator : MonoBehaviour
         //move the box with the arrow keys
         playerBox.AddComponent<snakeheadController>();
 
-        playerBox.name = "Black player box";
+        playerBox.name = "blackPlayerBox";
 
         pastPositions = new List<positionRecord>();
 

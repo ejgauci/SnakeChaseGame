@@ -20,7 +20,7 @@ public class customAIMoveScriptGrid : MonoBehaviour
     GameObject graphParent;
 
     //the node of the graph that is going to correspond with the green box
-    GameObject targetNode;
+    //GameObject targetNode;
 
     public List<Transform> obstacleNodes;
 
@@ -29,7 +29,7 @@ public class customAIMoveScriptGrid : MonoBehaviour
     void Start()
     {
 
-        target = GameObject.Find("Target").transform;
+        target = GameObject.Find("blackPlayerBox").transform;
 
 
         //Debug.Log(this.name);
@@ -39,7 +39,7 @@ public class customAIMoveScriptGrid : MonoBehaviour
 
 
         //node target by name
-        targetNode = GameObject.Find("TargetNode");
+        //targetNode = GameObject.Find("TargetNode");
 
         //find the parent node of the point graph
          //graphParent = GameObject.Find("PointGraphObject");
@@ -59,6 +59,7 @@ public class customAIMoveScriptGrid : MonoBehaviour
         StartCoroutine(moveTowardsEnemy(this.transform));
     }
 
+   
 
 
     IEnumerator updateGraph()
