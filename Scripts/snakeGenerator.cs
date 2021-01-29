@@ -11,7 +11,7 @@ public class snakeGenerator : MonoBehaviour
     public GameObject square;
     public GameObject timer;
     public Transform spawnPoint;
-    public GameObject AI;
+    ////////public GameObject AI;
 
     foodGenerator fgen;
     snakeheadController snakeController;
@@ -59,11 +59,13 @@ public class snakeGenerator : MonoBehaviour
         playerBox = Instantiate(square, spawnPoint.position, Quaternion.identity);
 
         
-
+        /*
         if (SceneManager.GetActiveScene().name != "Level1")
         {
             AIBox = Instantiate(AI, new Vector3(0f, 0f, 0f), Quaternion.identity);
-        }
+
+        
+        }*/
 
         
 
