@@ -93,7 +93,7 @@ public class snakeheadController : MonoBehaviour
             transform.position -= new Vector3(1f,0);
             checkBounds();
             myfoodgenerator.eatFood(this.transform.position);
-            //Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength));
+           // mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength);
 
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -102,7 +102,7 @@ public class snakeheadController : MonoBehaviour
             transform.position += new Vector3(1f, 0);
             checkBounds();
             myfoodgenerator.eatFood(this.transform.position);
-            //Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength));
+           // mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -110,7 +110,7 @@ public class snakeheadController : MonoBehaviour
             transform.position += new Vector3(0, 1f);
             checkBounds();
             myfoodgenerator.eatFood(this.transform.position);
-            //Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength));
+            //mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -118,11 +118,11 @@ public class snakeheadController : MonoBehaviour
             transform.position -= new Vector3(0, 1f);
             checkBounds();
             myfoodgenerator.eatFood(this.transform.position);
-            //Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength));
+            //mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength);
         }
         
         
 
-        //Debug.Log(mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength)); 
+        mysnakegenerator.hitTail(this.transform.position, mysnakegenerator.snakelength); 
     }
 }

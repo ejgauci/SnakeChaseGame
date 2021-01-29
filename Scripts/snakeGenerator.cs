@@ -324,6 +324,7 @@ public class snakeGenerator : MonoBehaviour
             if ((headPosition == pastPositions[snakeblocks].Position) && (pastPositions[snakeblocks].BreadcrumbBox != null))
             {
                 Debug.Log("Hit Tail");
+                SceneManager.LoadScene(3);
                 return true;
             }
         }
