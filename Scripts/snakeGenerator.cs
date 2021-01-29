@@ -58,6 +58,8 @@ public class snakeGenerator : MonoBehaviour
 
         playerBox = Instantiate(square, spawnPoint.position, Quaternion.identity);
 
+        
+
         if (SceneManager.GetActiveScene().name != "Level1")
         {
             AIBox = Instantiate(AI, new Vector3(0f, 0f, 0f), Quaternion.identity);
@@ -88,6 +90,9 @@ public class snakeGenerator : MonoBehaviour
         //move the box with the arrow keys
         playerBox.AddComponent<snakeheadController>();
 
+        playerBox.AddComponent<Rigidbody2D>().isKinematic=true;
+        playerBox.AddComponent<BoxCollider2D>().isTrigger = true;
+
         playerBox.name = "blackPlayerBox";
 
         pastPositions = new List<positionRecord>();
@@ -99,6 +104,9 @@ public class snakeGenerator : MonoBehaviour
         drawTail(snakelength);
        
     }
+
+    
+
 
     //TASK 1: create a coroutine based on this code that when the X key is pressed, the box is going to go through
     //all its past positions, until it gets to the beginning. The speed should be one position every second
@@ -226,11 +234,12 @@ public class snakeGenerator : MonoBehaviour
     }
 
 
-    void cleanList()
+    public void cleanList()
     {
         for(int counter = pastPositions.Count - 1 ; counter > pastPositions.Count;counter--)
         {
             pastPositions[counter] = null;
+            print("clean list");
         }
     }
 
@@ -326,8 +335,9 @@ public class snakeGenerator : MonoBehaviour
 
 
 
-    void clearTail()
+    public void clearTail()
     {
+        print("clean tail");
         cleanList();
         foreach (positionRecord p in pastPositions)
         {
@@ -432,7 +442,7 @@ public class positionRecord
 
 
         //the distance between any food spawned
-        return Vector3.Distance(this.position, o.position) < 2f;
+        return Vector3.Distance(this.position, o.position) < 5f;
 
 
     }
