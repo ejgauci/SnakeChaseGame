@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class foodGenerator : MonoBehaviour
+public class foodGenerator : MonoBehaviour   //ej
 {
     positionRecord foodPosition;
 
-   public GameObject foodObject;
-    
+    public GameObject foodObject;
 
     public List<positionRecord> allTheFood;
-
 
     snakeGenerator sn;
 
@@ -19,7 +17,7 @@ public class foodGenerator : MonoBehaviour
     int getVisibleFood()
     {
         int counter = 0;
-        foreach(positionRecord f in allTheFood)
+        foreach (positionRecord f in allTheFood)
         {
             if (f.BreadcrumbBox != null)
             {
@@ -37,9 +35,9 @@ public class foodGenerator : MonoBehaviour
         snakeHeadPos.Position = snakeHeadPosition;
 
         int foodIndex = allTheFood.IndexOf(snakeHeadPos);
-        
-       
-        
+
+
+
 
 
         //if I have a list as follows
@@ -54,13 +52,13 @@ public class foodGenerator : MonoBehaviour
 
 
         if (foodIndex != -1)
-        { 
+        {
 
-            Color foodColor;
+            //Color foodColor;
 
-            foodColor = allTheFood[foodIndex].BreadcrumbBox.GetComponent<SpriteRenderer>().color;
+           // foodColor = allTheFood[foodIndex].BreadcrumbBox.GetComponent<SpriteRenderer>().color;
 
-            sn.changeSnakeColor(sn.snakelength,foodColor);
+           // sn.changeSnakeColor(sn.snakelength,foodColor);
 
             Destroy(allTheFood[foodIndex].BreadcrumbBox);
 
@@ -68,7 +66,7 @@ public class foodGenerator : MonoBehaviour
 
             sn.snakelength++;
 
-            
+
         }
 
 
@@ -77,47 +75,42 @@ public class foodGenerator : MonoBehaviour
 
     public IEnumerator generateFood()
     {
-        while(true)
+        while (true)
         {
-            if (getVisibleFood() < 6) {
+            if (getVisibleFood() < 6)
+            {
 
                 Vector3 randomLocation;
-
                 do
                 {
                     yield return new WaitForSeconds(0.5f);
 
                     foodPosition = new positionRecord();
 
-                    float randomX = Mathf.Floor(Random.Range(-15f, 15f));
+                    float randomX = Mathf.Floor(Random.Range(-14f, 14f));
 
-                    float randomY = Mathf.Floor(Random.Range(-15f, 15f));
+                    float randomY = Mathf.Floor(Random.Range(-14f, 14f));
 
                     randomLocation = new Vector3(randomX + 0.5f, randomY + 0.5f);
                 }
                 while (Physics2D.OverlapCircleAll(randomLocation, 0.1f).Length != 0);
 
-                
 
-
-
-
-                //don't allow the food to be spawned on other food
+                //don't allow the food to be spawned on other food            
 
                 foodPosition.Position = randomLocation;
+                //print("Disance: "+ allTheFood.Equals(foodPosition));
 
-                if (!allTheFood.Contains(foodPosition) && !sn.hitTail(foodPosition.Position,sn.snakelength))
-
+                if (!allTheFood.Contains(foodPosition) && !sn.hitTail(foodPosition.Position, sn.snakelength))
                 {
-
                     foodPosition.BreadcrumbBox = Instantiate(foodObject, randomLocation, Quaternion.Euler(0f, 0f, 45f));
 
 
                     //make the food half the size
-                    foodPosition.BreadcrumbBox.transform.localScale = new Vector3(0.5f,0.5f);
+                    foodPosition.BreadcrumbBox.transform.localScale = new Vector3(0.5f, 0.5f);
 
 
-                    foodPosition.BreadcrumbBox.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
+                    foodPosition.BreadcrumbBox.GetComponent<SpriteRenderer>().color = Color.red;
 
                     foodPosition.BreadcrumbBox.transform.localScale = new Vector3(0.5f, 0.5f);
 
@@ -140,11 +133,14 @@ public class foodGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
         foodPosition = new positionRecord();
 
         allTheFood = new List<positionRecord>();
 
-        //foodObject = Resources.Load<GameObject>("Prefabs/Square");
+
 
         sn = Camera.main.GetComponent<snakeGenerator>();
 
@@ -154,5 +150,5 @@ public class foodGenerator : MonoBehaviour
     }
 
 
-    
+
 }

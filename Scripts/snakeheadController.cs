@@ -8,9 +8,11 @@ public class snakeheadController : MonoBehaviour
 {
     snakeGenerator mysnakegenerator;
     foodGenerator myfoodgenerator,myfoodgenerator2;
-    
+    public GameObject portal;
+    Color portalColor;
 
-   
+
+
     public Vector3 findClosestFood()
     {
         if (myfoodgenerator.allTheFood.Count > 0)
@@ -40,6 +42,8 @@ public class snakeheadController : MonoBehaviour
     {
         mysnakegenerator = Camera.main.GetComponent<snakeGenerator>();
         myfoodgenerator = Camera.main.GetComponent<foodGenerator>();
+
+        portal = GameObject.Find("Portal");
         
 
     }
@@ -54,7 +58,25 @@ public class snakeheadController : MonoBehaviour
         {
             Debug.Log("Wall");
             //sm.deathScene();
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
+
+
+        }
+        if (collision.gameObject.tag == "Portal")
+        {
+            Debug.Log("Portal");
+
+            
+
+            if (SceneManager.GetActiveScene().name == "Level1")
+            {
+                if (mysnakegenerator.getLength() >= 8)
+                {
+                    SceneManager.LoadScene(2);
+                }
+
+            }
+            
 
 
         }
@@ -80,12 +102,22 @@ public class snakeheadController : MonoBehaviour
 
 
     }
+    
+
 
     // Update is called once per frame
     void Update()
     {
+       
 
-        
+
+        if (mysnakegenerator.getLength() >= 8)
+        {
+            portal.GetComponent<SpriteRenderer>().color = Color.green;
+        }
+
+
+
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
 

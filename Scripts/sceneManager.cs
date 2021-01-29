@@ -17,8 +17,13 @@ public class sceneManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void deathScene()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 }

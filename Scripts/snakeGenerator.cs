@@ -105,7 +105,10 @@ public class snakeGenerator : MonoBehaviour
        
     }
 
-    
+    public int getLength()
+    {
+        return snakelength;
+    }
 
 
     //TASK 1: create a coroutine based on this code that when the X key is pressed, the box is going to go through
@@ -324,7 +327,7 @@ public class snakeGenerator : MonoBehaviour
             if ((headPosition == pastPositions[snakeblocks].Position) && (pastPositions[snakeblocks].BreadcrumbBox != null))
             {
                 Debug.Log("Hit Tail");
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(4);
                 return true;
             }
         }
