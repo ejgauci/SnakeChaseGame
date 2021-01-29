@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class snakeheadController : MonoBehaviour
 {
     snakeGenerator mysnakegenerator;
     foodGenerator myfoodgenerator,myfoodgenerator2;
-    sceneManager sm;
+    
 
    
     public Vector3 findClosestFood()
@@ -43,6 +44,7 @@ public class snakeheadController : MonoBehaviour
 
     }
 
+    //sceneManager sm;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,9 +53,10 @@ public class snakeheadController : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             Debug.Log("Wall");
-            //this.gameObject.transform.position = mysnakegenerator.spawnPoint.position;
-            // mysnakegenerator.clearTail();
-            sm.deathScene();
+            //sm.deathScene();
+            SceneManager.LoadScene(3);
+
+
         }
         else 
         {

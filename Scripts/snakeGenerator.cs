@@ -337,7 +337,7 @@ public class snakeGenerator : MonoBehaviour
 
     public void clearTail()
     {
-        print("clean tail");
+        
         cleanList();
         foreach (positionRecord p in pastPositions)
         {
