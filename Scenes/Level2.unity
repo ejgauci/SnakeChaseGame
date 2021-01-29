@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451359c3f645eb64184dabb056d4f240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snakelength: 5
+  snakelength: 3
   enemyBox: {fileID: 1361258513465638003, guid: 38f093f40251ef34cba6b834ddde3012, type: 3}
   breadcrumbBox: {fileID: 8087725052837249148, guid: 8ca1c9a1c2cfa204684ee152cca06f69, type: 3}
 --- !u!4 &2125989347 stripped

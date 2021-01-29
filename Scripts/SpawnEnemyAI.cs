@@ -81,11 +81,17 @@ public class SpawnEnemyAI : MonoBehaviour
 
     bool firstrun = true;
 
+   public int getEnemyLength()
+    {
+        return snakelength;
+    }
 
     Color snakeColor;
     // Start is called before the first frame update
     void Start()
     {
+
+
         //enemyBox = Resources.Load<GameObject>("Prefabs/AISnake");
 
         snakeColor = Color.white;
@@ -164,6 +170,8 @@ public class SpawnEnemyAI : MonoBehaviour
 
     public void enemyDrawTail(int length)
     {
+        print("Enemytail length: " + length);
+
         clearTail();
 
         if (pastPositions.Count > length)
@@ -171,7 +179,7 @@ public class SpawnEnemyAI : MonoBehaviour
             //nope
             //I do have enough positions in the past positions list
             //the first block behind the player
-            int tailStartIndex2 = pastPositions.Count - 1;
+            int tailStartIndex2 = pastPositions.Count - 2;
             int tailEndIndex = tailStartIndex2 - length;
 
 
