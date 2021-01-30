@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class timerManager : MonoBehaviour
 {
 
     public bool timerStarted;
+    public bool timerPaused;
 
     float timerValue=0f;
 
@@ -22,8 +24,8 @@ public class timerManager : MonoBehaviour
                 //measure the time
                 timerValue++;
 
-                float minutes = timerValue / 60f;
-                float seconds = timerValue % 60f;
+                float minutes = Mathf.FloorToInt(timerValue / 60f);
+                float seconds = Mathf.FloorToInt(timerValue % 60f);
 
                 timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
@@ -38,6 +40,20 @@ public class timerManager : MonoBehaviour
                 timerText.text = string.Format("{0:00}:{1:00}", 0f, 0f);
                 yield return null;
 
+            }
+
+            if (timerPaused)
+            {
+                float minutes = Mathf.FloorToInt(timerValue / 60f);
+                float seconds = Mathf.FloorToInt(timerValue % 60f);
+
+                timerText.color =Color.red;
+                if(SceneManager.GetActiveScene().name == "DeathScene")
+                {
+                    timerText.color = Color.green;
+                }
+
+                timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             }
             
         }

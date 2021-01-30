@@ -66,7 +66,7 @@ public class snakeGenerator : MonoBehaviour
         
         }*/
 
-
+        
 
 
         timerUI = Instantiate(timer, new Vector3(0f,0f,0f), Quaternion.identity);
