@@ -10,7 +10,7 @@ public class playerHighScores
     public float t;
 }
 public class HighscoreScript : MonoBehaviour
-{
+{/*
 
     public string[] names;
     public float[] times;
@@ -21,7 +21,7 @@ public class HighscoreScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {/*
+    {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         names = PlayerPrefsX.GetStringArray("Names", "", 1);
         times = PlayerPrefsX.GetFloatArray("Times", 0f, 1);
@@ -45,6 +45,7 @@ public class HighscoreScript : MonoBehaviour
                 playerHSList.Add(pHS);
             }
         }
-    */}
+    */
+        }
 
 }
