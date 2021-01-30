@@ -73,6 +73,41 @@ public class foodGenerator : MonoBehaviour   //ej
 
     }
 
+    public void eatFood(Vector3 snakeHeadPosition, SpawnEnemyAI se)
+    {
+        positionRecord snakeHeadPos = new positionRecord();
+
+        snakeHeadPos.Position = snakeHeadPosition;
+
+        int foodIndex = allTheFood.IndexOf(snakeHeadPos);
+
+
+
+
+
+        if (foodIndex != -1)
+        {
+
+            //Color foodColor;
+
+            // foodColor = allTheFood[foodIndex].BreadcrumbBox.GetComponent<SpriteRenderer>().color;
+
+            // sn.changeSnakeColor(sn.snakelength,foodColor);
+
+            Destroy(allTheFood[foodIndex].BreadcrumbBox);
+
+            allTheFood.RemoveAt(foodIndex);
+
+            se.snakelength++;
+
+
+        }
+
+
+
+
+    }
+
     public IEnumerator generateFood()
     {
         while (true)

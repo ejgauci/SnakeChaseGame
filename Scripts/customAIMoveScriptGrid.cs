@@ -149,6 +149,7 @@ public class customAIMoveScriptGrid : MonoBehaviour
 
                         Camera.main.GetComponent<SpawnEnemyAI>().savePosition();
                         Camera.main.GetComponent<SpawnEnemyAI>().enemyDrawTail(Camera.main.GetComponent<SpawnEnemyAI>().snakelength);
+                        Camera.main.GetComponent<foodGenerator>().eatFood(t.position, Camera.main.GetComponent<SpawnEnemyAI>());
 
                       //  Debug.Log("@:" + t.position + " " + target.position + " " + posns[counter]);
                         yield return new WaitForSeconds(0.2f);

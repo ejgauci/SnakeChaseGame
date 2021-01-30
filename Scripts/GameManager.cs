@@ -13,4 +13,9 @@ public class GameManager : MonoBehaviour
     {
         ateNo++;
     }
+
+    public void Scan()
+    {
+        GameObject.Find("AStarGrid").GetComponent<AstarPath>().Scan();
+    }
 }
