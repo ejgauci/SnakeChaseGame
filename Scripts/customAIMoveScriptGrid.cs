@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Pathfinding;
-
+using UnityEngine.SceneManagement;
 
 public class customAIMoveScriptGrid : MonoBehaviour
 {
@@ -27,8 +27,17 @@ public class customAIMoveScriptGrid : MonoBehaviour
 
     SpawnEnemyAI spawnEnemyAI;
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Enemy collided with player");
 
-   
+       
+            SceneManager.LoadScene(4);
+
+
+
+    }
+
 
 
     // Start is called before the first frame update

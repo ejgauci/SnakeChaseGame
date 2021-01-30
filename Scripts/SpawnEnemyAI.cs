@@ -121,7 +121,7 @@ public class SpawnEnemyAI : MonoBehaviour
 
             if (p.Position == positionToCheck)
             {
-                Debug.Log(p.Position + "Actually was a past position");
+                //Debug.Log(p.Position + "Actually was a past position");
                 if (p.BreadcrumbBox != null)
                 {
                     Debug.Log(p.Position + "Actually has a red box already");
@@ -156,7 +156,7 @@ public class SpawnEnemyAI : MonoBehaviour
         }
 
         pastPositions.Add(currentBoxPos);
-        Debug.Log("Have made this many moves: " + pastPositions.Count);
+        //Debug.Log("Have made this many moves: " + pastPositions.Count);
     }
 
     public void cleanList()
@@ -170,7 +170,7 @@ public class SpawnEnemyAI : MonoBehaviour
 
     public void enemyDrawTail(int length)
     {
-        print("Enemytail length: " + length);
+        //print("Enemytail length: " + length);
 
         clearTail();
 
@@ -189,7 +189,7 @@ public class SpawnEnemyAI : MonoBehaviour
                 //prints the past position and its order in the list
                 //Debug.Log(pastPositions[snakeblocks].Position + " " + pastPositions[snakeblocks].PositionOrder);
 
-                Debug.Log(snakeblocks);
+                //Debug.Log(snakeblocks);
 
                 pastPositions[snakeblocks].BreadcrumbBox = Instantiate(breadcrumbBox, pastPositions[snakeblocks].Position, Quaternion.identity);
                 pastPositions[snakeblocks].BreadcrumbBox.GetComponent<SpriteRenderer>().color = snakeColor;
