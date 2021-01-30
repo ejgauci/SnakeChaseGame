@@ -32,10 +32,19 @@ public class customAIMoveScriptGrid : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enemy collided with player");
+        if (collision.gameObject.tag == "Wall")
+        {
+            Debug.Log("ai hit moving obstacle");
 
-       
+
+        }
+        else
+        {
+            Debug.Log("ai collided with player");
+
             SceneManager.LoadScene(4);
+        }
+        
 
 
     }

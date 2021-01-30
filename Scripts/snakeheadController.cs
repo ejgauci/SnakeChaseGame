@@ -54,7 +54,7 @@ public class snakeheadController : MonoBehaviour
     {
         
         
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "movingObstacle")
         {
             Debug.Log("Wall");
             //sm.deathScene();
