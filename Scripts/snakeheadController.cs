@@ -84,6 +84,15 @@ public class snakeheadController : MonoBehaviour
                 }
 
             }
+            else
+            if (SceneManager.GetActiveScene().name == "Level3")
+            {
+                if (mysnakegenerator.getLength() >= 8)
+                {
+                    SceneManager.LoadScene(5);
+                }
+
+            }
 
 
 
