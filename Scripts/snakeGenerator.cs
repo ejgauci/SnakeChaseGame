@@ -58,7 +58,6 @@ public class snakeGenerator : MonoBehaviour
 
         playerBox = Instantiate(square, spawnPoint.position, Quaternion.identity);
 
-        
         /*
         if (SceneManager.GetActiveScene().name != "Level1")
         {
@@ -67,7 +66,7 @@ public class snakeGenerator : MonoBehaviour
         
         }*/
 
-        
+
 
 
         timerUI = Instantiate(timer, new Vector3(0f,0f,0f), Quaternion.identity);
@@ -286,6 +285,7 @@ public class snakeGenerator : MonoBehaviour
 
                 pastPositions[snakeblocks].BreadcrumbBox = Instantiate(breadcrumbBox, pastPositions[snakeblocks].Position, Quaternion.identity);
                 pastPositions[snakeblocks].BreadcrumbBox.GetComponent<SpriteRenderer>().color = snakeColor;
+                pastPositions[snakeblocks].BreadcrumbBox.AddComponent<BoxCollider2D>().size = new Vector2(0.95f, 0.95f);
 
             }
 

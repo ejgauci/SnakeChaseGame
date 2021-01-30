@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class snakeheadController : MonoBehaviour
 {
     snakeGenerator mysnakegenerator;
-    foodGenerator myfoodgenerator,myfoodgenerator2;
+    foodGenerator myfoodgenerator;
     public GameObject portal;
     Color portalColor;
 

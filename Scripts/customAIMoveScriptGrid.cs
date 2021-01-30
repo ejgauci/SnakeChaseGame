@@ -20,6 +20,9 @@ public class customAIMoveScriptGrid : MonoBehaviour
     GameObject graphParent;
     int enemyAI;
 
+    foodGenerator myfoodgenerator;
+
+
     //the node of the graph that is going to correspond with the green box
     //GameObject targetNode;
 
@@ -35,8 +38,22 @@ public class customAIMoveScriptGrid : MonoBehaviour
             SceneManager.LoadScene(4);
 
 
-
     }
+    /*
+    private void Update()
+    {
+        if ((transform.position.x < -(Camera.main.orthographicSize - 1)) || (transform.position.x > (Camera.main.orthographicSize - 1)))
+        {
+            transform.position = new Vector3(-transform.position.x, transform.position.y);
+        }
+
+        if ((transform.position.y < -(Camera.main.orthographicSize - 1)) || (transform.position.y > (Camera.main.orthographicSize - 1)))
+        {
+            transform.position = new Vector3(transform.position.x, -transform.position.y);
+        }
+
+        myfoodgenerator.eatFood(this.transform.position);
+    }*/
 
 
 
