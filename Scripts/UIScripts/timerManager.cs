@@ -60,10 +60,10 @@ public class timerManager : MonoBehaviour
                 float minutes = Mathf.FloorToInt(gm.time / 60f);
                 float seconds = Mathf.FloorToInt(gm.time % 60f);
 
-                timerText.color =Color.red;
+                timerText.color =Color.green;
                 if(SceneManager.GetActiveScene().name == "DeathScene")
                 {
-                    timerText.color = Color.green;
+                    timerText.color = Color.red;
                 }
 
                 timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
