@@ -30,6 +30,10 @@ public class customAIMoveScriptGrid : MonoBehaviour
 
     SpawnEnemyAI spawnEnemyAI;
 
+    LineRenderer lineRenderer;
+
+    List<Vector3> posns;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Wall")
@@ -102,7 +106,17 @@ public class customAIMoveScriptGrid : MonoBehaviour
         StartCoroutine(moveTowardsEnemy(this.transform));
     }
 
-   
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            LineRenderer lineRenderer = GetComponent<LineRenderer>();
+
+            lineRenderer.positionCount = posns.Count;
+            lineRenderer.SetPositions(pathToFollow.vectorPath.ToArray());
+        }
+
+    }
 
 
     IEnumerator updateGraph()
@@ -128,7 +142,7 @@ public class customAIMoveScriptGrid : MonoBehaviour
         while (true)
         {
 
-            List<Vector3> posns = pathToFollow.vectorPath;
+             posns = pathToFollow.vectorPath;
             //Debug.Log("Positions Count: " + posns.Count);
 
             for (int counter = 0; counter < posns.Count; counter++)
