@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int ateNo=0;
+   // public int ateNo=0;
 
-    public InputField usernameText;
-    public static string username = "";
+    public Text usernameText;
+    public string username = "";
     public bool alreadyname;
 
 
@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     GameObject timerUI;
     public GameObject timer;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
 
     public void Scan()
@@ -30,8 +34,8 @@ public class GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "startingScene")
         {
 
-           /* usernameText = GameObject.Find("Text").GetComponent<Text>();
-            username = usernameText.text;*/
+            usernameText = GameObject.Find("Text").GetComponent<Text>();
+            username = usernameText.text;
         }
 
         if(timerUI == null)

@@ -9,7 +9,7 @@ public class snakeGenerator : MonoBehaviour
 
     public int snakelength;
     public GameObject square;
-    public GameObject timer;
+   // public GameObject timer;
     public Transform spawnPoint;
     ////////public GameObject AI;
 
@@ -67,12 +67,12 @@ public class snakeGenerator : MonoBehaviour
         }*/
 
         
-
+        /*
 
         timerUI = Instantiate(timer, new Vector3(0f,0f,0f), Quaternion.identity);
 
         //the default value for the timer is started
-        timerUI.GetComponentInChildren<timerManager>().timerStarted = true;
+        timerUI.GetComponentInChildren<timerManager>().timerStarted = true;*/
 
        
 
