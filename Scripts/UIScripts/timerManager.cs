@@ -7,25 +7,34 @@ using UnityEngine.UI;
 public class timerManager : MonoBehaviour
 {
 
-    public bool timerStarted;
+    public bool timerStarted = false;
     public bool timerPaused;
-
-    float timerValue=0f;
+    public GameManager gm;
 
     Text timerText;
-    
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        gm = FindObjectOfType<GameManager>();
+        //the text component attached to THIS object
+        timerText = GetComponent<Text>();
+        StartCoroutine(timer());
+
+
+    }
     IEnumerator timer()
     {
         while(true)
         { 
             if (timerStarted)
             {
+                gm.time++;
                 //measure the time
-                timerValue++;
+                //timerValue++;
 
-                float minutes = Mathf.FloorToInt(timerValue / 60f);
-                float seconds = Mathf.FloorToInt(timerValue % 60f);
+                float minutes = Mathf.FloorToInt(gm.time / 60f);
+                float seconds = Mathf.FloorToInt(gm.time % 60f);
 
                 timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
@@ -36,7 +45,7 @@ public class timerManager : MonoBehaviour
             else
             {
                 //don't measure the time
-                timerValue = 0f;
+                gm.time = 0f;
                 timerText.text = string.Format("{0:00}:{1:00}", 0f, 0f);
                 yield return null;
 
@@ -44,8 +53,8 @@ public class timerManager : MonoBehaviour
 
             if (timerPaused)
             {
-                float minutes = Mathf.FloorToInt(timerValue / 60f);
-                float seconds = Mathf.FloorToInt(timerValue % 60f);
+                float minutes = Mathf.FloorToInt(gm.time / 60f);
+                float seconds = Mathf.FloorToInt(gm.time % 60f);
 
                 timerText.color =Color.red;
                 if(SceneManager.GetActiveScene().name == "DeathScene")
@@ -60,13 +69,7 @@ public class timerManager : MonoBehaviour
     }
 
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        //the text component attached to THIS object
-        timerText = GetComponent<Text>();
-        StartCoroutine(timer()); 
-    }
+   
 
     
 }

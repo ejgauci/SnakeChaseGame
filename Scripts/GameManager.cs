@@ -38,16 +38,17 @@ public class GameManager : MonoBehaviour
             username = usernameText.text;
         }
 
-        if(timerUI == null)
-        {
-            if(!(SceneManager.GetActiveScene().name == "startingScene"))
+        
+       if(!(SceneManager.GetActiveScene().name == "startingScene"))
+       {
+          if (timerUI == null)
             {
                 timerUI = Instantiate(timer, new Vector3(0f, 0f, 0f), Quaternion.identity);
-
+            }
                 //the default value for the timer is started
                 timerUI.GetComponentInChildren<timerManager>().timerStarted = true;
-            }
-        }
+       }
+        
 
         if (SceneManager.GetActiveScene().name == "Level1")
         {
