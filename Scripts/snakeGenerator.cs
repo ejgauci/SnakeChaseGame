@@ -362,7 +362,7 @@ public class snakeGenerator : MonoBehaviour
             || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) && !Input.GetKeyDown(KeyCode.X) && !Input.GetKeyDown(KeyCode.Z) && !Input.GetKeyDown(KeyCode.Space))
         {
             //Debug.Log("a key was pressed "+Time.time);
-          
+
             savePosition();
 
             //draw a tail of length 4
@@ -389,7 +389,7 @@ public class snakeGenerator : MonoBehaviour
           //  StartCoroutine(Task5());
         }
 
-
+        
     }
 }
 

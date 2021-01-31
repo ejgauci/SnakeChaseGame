@@ -89,7 +89,7 @@ public class Highscores : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).GetChild(0).GetComponent<Text>().text = "Username: " + playerHSList[i].n;
-            transform.GetChild(i).GetChild(2).GetComponent<Text>().text = "Time: " + playerHSList[i].t;
+            transform.GetChild(i).GetChild(1).GetComponent<Text>().text = "Time: " + playerHSList[i].t;
         }
 
     }

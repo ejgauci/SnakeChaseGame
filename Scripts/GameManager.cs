@@ -45,7 +45,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name == "startingScene")
+        if (Input.GetMouseButtonDown(1))
+        {
+            print("Skip level cheat");
+            skipLevel();
+        }
+
+        if (SceneManager.GetActiveScene().name == "startingScene")
         {
 
             usernameText = GameObject.Find("Text").GetComponent<Text>();
@@ -91,5 +97,26 @@ public class GameManager : MonoBehaviour
         time = 0;
         SceneManager.LoadScene("Level1");
     }
+
+    public void skipLevel()
+    {
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            SceneManager.LoadScene(2);
+        }
+        else
+            if (SceneManager.GetActiveScene().name == "Level2")
+        {
+
+            SceneManager.LoadScene(3);
+        }
+        else
+            if (SceneManager.GetActiveScene().name == "Level3")
+        {
+            SceneManager.LoadScene(5);
+
+        }
+    }
+
 
 }
