@@ -18,8 +18,8 @@ public class eventsController : MonoBehaviour
         registerButton.GetComponent<Button>().onClick.AddListener(
             () => //round backets equals and arrow
             { //curly bracket start
-                Debug.Log("register User here!");
-                Debug.Log(myVar);
+                //Debug.Log("register User here!");
+               // Debug.Log(myVar);
             } //curly bracket    
          ); //round bracket semi colon
 
@@ -39,14 +39,14 @@ public class eventsController : MonoBehaviour
 
     void registerButtonPressedWithParam(string myparam)
     {
-        Debug.Log(myparam);
+       // Debug.Log(myparam);
     }
 
 
     void registerButtonPressed()
     {
-        Debug.Log("register user here 2!");
-        Debug.Log(myVar);
+        //Debug.Log("register user here 2!");
+        //Debug.Log(myVar);
     }
 
     // Update is called once per frame

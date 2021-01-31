@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Text usernameText;
     public string username = "";
     public bool alreadyname;
-
+    public bool timerPaused = false;
 
     public float time = 0f;
 
@@ -20,7 +20,21 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        setUpSingleton();
+    }
+
+    public void setUpSingleton()
+    {
+        int numberOfGameManagers = FindObjectsOfType<GameManager>().Length;
+        if (numberOfGameManagers > 1)
+        {
+            Destroy(gameObject);
+
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
 
@@ -59,6 +73,7 @@ public class GameManager : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name == "winningScene" || SceneManager.GetActiveScene().name == "DeathScene")
         {
+            timerPaused = true;
             timerUI.GetComponentInChildren<timerManager>().timerPaused = true;
         }
     }
@@ -68,6 +83,13 @@ public class GameManager : MonoBehaviour
         username = "";
         time = 0;
         SceneManager.LoadScene("startingScene");
+    }
+
+    public void restart()
+    {
+       
+        time = 0;
+        SceneManager.LoadScene("Level1");
     }
 
 }

@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class sceneManager : MonoBehaviour
 {
     GameManager gm;
+
+    private void Start()
+    {
+        gm = FindObjectOfType<GameManager>();
+    }
     public void Load(string scenename)
     {
         Debug.Log("sceneName to load: " + scenename);
@@ -15,7 +20,8 @@ public class sceneManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        gm.restart();
     }
 
     public void MainMenu()
@@ -28,6 +34,8 @@ public class sceneManager : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+
+ 
 
     internal static object GetActiveScene()
     {

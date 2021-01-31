@@ -8,7 +8,7 @@ public class timerManager : MonoBehaviour
 {
 
     public bool timerStarted = false;
-    public bool timerPaused;
+    public bool timerPaused = false;
     public GameManager gm;
 
     Text timerText;
@@ -25,8 +25,9 @@ public class timerManager : MonoBehaviour
     }
     IEnumerator timer()
     {
-        while(true)
-        { 
+        while (!timerPaused)
+        {
+
             if (timerStarted)
             {
                 gm.time++;
@@ -50,6 +51,9 @@ public class timerManager : MonoBehaviour
                 yield return null;
 
             }
+        }
+           
+            
 
             if (timerPaused)
             {
@@ -65,7 +69,7 @@ public class timerManager : MonoBehaviour
                 timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             }
             
-        }
+        
     }
 
     
