@@ -89,7 +89,13 @@ public class Highscores : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).GetChild(0).GetComponent<Text>().text = "Username: " + playerHSList[i].n;
-            transform.GetChild(i).GetChild(1).GetComponent<Text>().text = "Time: " + playerHSList[i].t;
+
+            float minutes = Mathf.FloorToInt(playerHSList[i].t / 60f);
+            float seconds = Mathf.FloorToInt(playerHSList[i].t % 60f);
+
+            string timerText = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            transform.GetChild(i).GetChild(1).GetComponent<Text>().text = "Time: " + timerText;
         }
 
     }
