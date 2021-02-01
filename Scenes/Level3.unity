@@ -335,9 +335,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8d29c573cf3f04b94e1da5ad131631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ateNo: 0
+  usernameText: {fileID: 0}
   username: 
+  alreadyname: 0
+  timerPaused: 0
   time: 0
+  timer: {fileID: 0}
 --- !u!4 &400831545
 Transform:
   m_ObjectHideFlags: 0
@@ -920,7 +923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 680103894188365291, guid: f469e9fa1025a2d49b12a1d5f2626a1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 680103894188365291, guid: f469e9fa1025a2d49b12a1d5f2626a1b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1696,7 +1699,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snakelength: 2
   square: {fileID: 8087725052837249148, guid: 8ca1c9a1c2cfa204684ee152cca06f69, type: 3}
-  timer: {fileID: 6884174041143387782, guid: 534d769d602ab774e848b076515c4323, type: 3}
   spawnPoint: {fileID: 3769596284332796810}
 --- !u!114 &2046224587
 MonoBehaviour:
